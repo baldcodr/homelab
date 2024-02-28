@@ -10,9 +10,9 @@ $ORIGIN megahost.ng.
                                 )
 @           IN      NS      ns1.megahost.ng.
 
-ns1		    IN      A	    192.168.0.75
+ns1		    IN      A	    192.168.0.194
 
 ; Main VLAN network services
 router		IN		A		192.168.0.1
-ap1         IN      A       192.168.0.2
-pc1			IN      A       192.168.0.101
+homelab     IN      A       192.168.0.194
+*.homelab   IN      A       192.168.0.194
