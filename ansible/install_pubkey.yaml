@@ -1,0 +1,16 @@
+---
+- hosts: system
+  become: yes
+  tasks:
+    - name: Set authorized key taken from file
+      ansible.posix.authorized_key:
+        user: david
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    - name: Validate the sudoers file before saving
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        validate: /usr/sbin/visudo -cf %s
