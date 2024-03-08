@@ -13,6 +13,10 @@ $ORIGIN megahost.ng.
 ns1		    IN      A	    192.168.0.194
 
 ; Main VLAN network services
-router		IN		A		192.168.0.1
-homelab     IN      A       192.168.0.194
-*.homelab   IN      A       192.168.0.194
+router		   IN	   A	   192.168.0.1
+proxmox-v      IN      A       192.168.0.219
+k8smaster      IN      A       192.168.0.217
+k8s-worker-1   IN      A       192.168.0.157
+k8s-worker-2   IN      A       192.168.0.170
+homelab        IN      A       192.168.0.194
+*.homelab      IN      A       192.168.0.194
