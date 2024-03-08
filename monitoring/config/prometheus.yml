@@ -18,13 +18,19 @@ scrape_configs:
   # Example job for node_exporter
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['23.251.150.23:9100']
+      - targets: ['node-exporter:9100']
 
   # Example job for cadvisor
   - job_name: 'cadvisor'
     static_configs:
-      - targets: ['localhost:5333']
-  # - job_name: 'bind'
-  #   static_configs:
-  #       - targets:
-  #          - server_hostname:9000
+      - targets: ['cadvisor:5333']
+      
+  - job_name: 'docker'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9323']
+
+  # Example job for bind9
+  - job_name: 'bind'
+    static_configs:
+        - targets: ['bind9:53']
